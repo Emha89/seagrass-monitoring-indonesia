@@ -1,66 +1,93 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Monitoring Seagrass Indonesia</title>
-    <!-- Menggunakan Tailwind CSS untuk Desain Cepat & Bagus -->
-    <script src="https://tailwindcss.com"></script>
-</head>
-<body class="bg-slate-50 font-sans text-slate-800">
+    <title>Indonesia Seagrass Monitoring Portal</title>
+    <style>
+        /* Base Styles & Structural Layout */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f1f5f9; color: #1e293b; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navigation Header Bar */
+        header { background-color: #047857; color: white; padding: 15px 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .header-flex { display: flex; justify-content: space-between; align-items: center; }
+        header h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+        header nav a { color: #a7f3d0; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s; }
+        header nav a:hover { color: white; }
 
-    <!-- Header / Navbar -->
-    <header class="bg-emerald-700 text-white shadow-md p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold tracking-wide">🌱 Indonesia Seagrass Hub</h1>
-            <nav class="space-x-4">
-                <a href="#monitoring" class="hover:text-emerald-200 transition">Monitoring</a>
-                <a href="#informasi" class="hover:text-emerald-200 transition">Informasi & Tren</a>
+        /* Key Metrics / KPI Grid Dashboard */
+        .kpi-section { margin: 30px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .kpi-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-left: 5px solid #10b981; }
+        .kpi-card p { margin: 0; text-transform: uppercase; font-size: 11px; color: #64748b; font-weight: 600; letter-spacing: 0.5px; }
+        .kpi-card h3 { margin: 10px 0 0 0; font-size: 24px; font-weight: 700; color: #0f172a; }
+
+        /* Primary Spatial Map Element Section */
+        .map-section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        .map-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 20px; }
+        .map-header h2 { margin: 0; font-size: 18px; color: #334155; }
+        .map-header p { margin: 5px 0 0 0; font-size: 13px; color: #94a3b8; }
+        .iframe-container { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #cbd5e1; background-color: #f8fafc; height: 680px; }
+
+        /* Website Footer Design */
+        footer { background-color: #1e293b; color: #94a3b8; padding: 20px 0; font-size: 13px; text-align: center; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Banner & Navigation Layout -->
+    <header>
+        <div class="container header-flex">
+            <h1>🌱 Indonesia Seagrass Hub</h1>
+            <nav>
+                <a href="#monitoring">Monitoring Map</a>
+                <a href="#species">Species Catalogue</a>
             </nav>
         </div>
     </header>
 
-    <!-- Ringkasan / KPI Cards -->
-    <section class="container mx-auto my-6 px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
-                <p class="text-sm text-slate-500 uppercase font-semibold">Total Luasan Lamun</p>
-                <h3 class="text-2xl font-bold mt-1">293.464 Ha</h3>
+    <div class="container">
+        <!-- Dashboard Summary Blocks (KPIs) -->
+        <section class="kpi-section">
+            <div class="grid-3">
+                <div class="kpi-card" style="border-left-color: #10b981;">
+                    <p>Total National Seagrass Area</p>
+                    <h3>293,464 Ha</h3>
+                </div>
+                <div class="kpi-card" style="border-left-color: #06b6d4;">
+                    <p>Average Estimated AGC</p>
+                    <h3>Excellent</h3>
+                </div>
+                <div class="kpi-card" style="border-left-color: #f59e0b;">
+                    <p>Spatial Data Status</p>
+                    <h3>Near Real-Time</h3>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-teal-500">
-                <p class="text-sm text-slate-500 uppercase font-semibold">Rata-rata Estimasi AGC</p>
-                <h3 class="text-2xl font-bold mt-1">Sangat Baik</h3>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-500">
-                <p class="text-sm text-slate-500 uppercase font-semibold">Status Data</p>
-                <h3 class="text-2xl font-bold mt-1 text-emerald-600">Near Real-Time</h3>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Fitur Utama: Peta Monitoring GEE -->
-    <section id="monitoring" class="container mx-auto my-6 px-4">
-        <div class="bg-white p-4 rounded-xl shadow-sm">
-            <div class="border-b pb-3 mb-4">
-                <h2 class="text-lg font-bold text-slate-700">Modul Pemantauan Spasial (GEE App)</h2>
-                <p class="text-xs text-slate-400">Gunakan kontrol di dalam peta untuk memfilter data time-series lamun.</p>
+        <!-- Main GEE Application Integration Frame -->
+        <section id="monitoring" class="map-section">
+            <div class="map-header">
+                <h2>Spatial Observation Module (Google Earth Engine)</h2>
+                <p>Utilize the built-in control panels inside the map viewer to filter time-series imagery and analyze coastal Above-Ground Biomass Carbon (AGC) trends across Indonesia.</p>
             </div>
-            <!-- TEMPAT EMBED GEE APP ANDA -->
-            <div class="w-full rounded-lg overflow-hidden border bg-slate-100">
+            <div class="iframe-container">
+                <!-- REDIRECTS SECURELY TO YOUR SPECIFIC SEAGRASS GEE APPLICATION -->
                 <iframe 
                     src="https://earthengine.app" 
                     width="100%" 
-                    height="650px" 
+                    height="100%" 
                     style="border:none;"
                     loading="lazy">
                 </iframe>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12 text-sm">
-        <p>&copy; 2026 Indonesia Seagrass Monitoring Platform. Powered by Google Earth Engine & GitHub.</p>
+    <!-- Legalities & System Attribution -->
+    <footer>
+        <p>&copy; 2026 Indonesia Seagrass Monitoring Platform. Driven by Google Earth Engine & Hosted on GitHub Pages.</p>
     </footer>
 
 </body>
