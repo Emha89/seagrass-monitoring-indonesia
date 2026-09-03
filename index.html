@@ -23,12 +23,18 @@
         .kpi-card p { margin: 0; text-transform: uppercase; font-size: 11px; color: #64748b; font-weight: 600; letter-spacing: 0.5px; }
         .kpi-card h3 { margin: 10px 0 0 0; font-size: 24px; font-weight: 700; color: #0f172a; }
 
-        /* Primary Spatial Map Element Section */
-        .map-section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 40px; }
-        .map-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 20px; }
-        .map-header h2 { margin: 0; font-size: 18px; color: #334155; }
-        .map-header p { margin: 5px 0 0 0; font-size: 13px; color: #94a3b8; }
-        .iframe-container { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #cbd5e1; background-color: #f8fafc; height: 680px; }
+        /* Launch Pad Dashboard Box */
+        .map-section { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 40px; text-align: center; }
+        .map-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 30px; text-align: left; }
+        .map-header h2 { margin: 0; font-size: 20px; color: #334155; }
+        .map-header p { margin: 5px 0 0 0; font-size: 14px; color: #94a3b8; }
+        
+        /* Interactive Launch Button Layout */
+        .launch-box { background: linear-gradient(135deg, #0f766e 0%, #047857 100%); color: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); max-width: 700px; margin: 0 auto; }
+        .launch-box h3 { margin: 0 0 10px 0; font-size: 22px; }
+        .launch-box p { margin: 0 0 25px 0; color: #ccfbf1; font-size: 14px; line-height: 1.5; }
+        .launch-btn { inline-block; background-color: #ffffff; color: #047857; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, background-color 0.2s; display: inline-block; }
+        .launch-btn:hover { background-color: #f8fafc; transform: translateY(-2px); }
 
         /* Website Footer Design */
         footer { background-color: #1e293b; color: #94a3b8; padding: 20px 0; font-size: 13px; text-align: center; margin-top: 40px; }
@@ -36,19 +42,18 @@
 </head>
 <body>
 
-    <!-- Top Banner & Navigation Layout -->
+    <!-- Header Section -->
     <header>
         <div class="container header-flex">
             <h1>🌱 Indonesia Seagrass Hub</h1>
             <nav>
-                <a href="#monitoring">Monitoring Map</a>
-                <a href="#species">Species Catalogue</a>
+                <a href="#monitoring">Monitoring App</a>
             </nav>
         </div>
     </header>
 
     <div class="container">
-        <!-- Dashboard Summary Blocks (KPIs) -->
+        <!-- Key Metrics Blocks -->
         <section class="kpi-section">
             <div class="grid-3">
                 <div class="kpi-card" style="border-left-color: #10b981;">
@@ -66,26 +71,24 @@
             </div>
         </section>
 
-        <!-- Main GEE Application Integration Frame -->
+        <!-- Dynamic GEE App Secure Launcher Gateway -->
         <section id="monitoring" class="map-section">
             <div class="map-header">
-                <h2>Spatial Observation Module (Google Earth Engine)</h2>
-                <p>Utilize the built-in control panels inside the map viewer to filter time-series imagery and analyze coastal Above-Ground Biomass Carbon (AGC) trends across Indonesia.</p>
+                <h2>Spatial Observation Module</h2>
+                <p>Access our cloud computing environment to trace spatial dynamics and structural carbon baselines.</p>
             </div>
-            <div class="iframe-container">
-                <!-- REDIRECTS SECURELY TO YOUR SPECIFIC SEAGRASS GEE APPLICATION -->
-                <iframe 
-                    src="https://earthengine.app" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:none;"
-                    loading="lazy">
-                </iframe>
+            
+            <div class="launch-box">
+                <h3>Seagrass AGC Mapping Viewer</h3>
+                <p>Google Earth Engine applications run on an encrypted standalone framework that restricts direct site embedding. Click below to securely open your high-performance mapping model in a dedicated analysis window.</p>
+                <a href="https://earthengine.app" target="_blank" class="launch-btn">
+                    🚀 Open Interactive GEE App
+                </a>
             </div>
         </section>
     </div>
 
-    <!-- Legalities & System Attribution -->
+    <!-- Footer Attribution -->
     <footer>
         <p>&copy; 2026 Indonesia Seagrass Monitoring Platform. Driven by Google Earth Engine & Hosted on GitHub Pages.</p>
     </footer>
