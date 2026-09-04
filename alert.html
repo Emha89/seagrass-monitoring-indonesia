@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="gate.js"></script>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A pilot tool that flags where seagrass may have recently disappeared in Kaledupa island.">
 <title>Change Alert — Indonesia Seagrass</title>
@@ -95,7 +97,7 @@
   <div class="lede">
     <p>For each three-month season, this tool classifies every location in Kaledupa island as seagrass present or absent, then compares that against how often the same season was classified present over the previous nine years (2017&ndash;2025). A spot that is usually present but currently absent is flagged as a provisional alert. If the same drop also shows up in the season before, it becomes a confirmed alert.</p>
     <p>This is a pilot. The change-detection logic has not yet been fully validated by research, so flagged pixels are best treated as leads worth checking on the ground, not confirmed facts. An empty confirmed-alert result does not necessarily mean an area is safe, either. Confirmed alerts need clear satellite images in two seasons in a row, which can be hard to get during the rainy season.</p>
-    <p>The underlying model was trained on presence and absence data from across Indonesia, but this app currently applies it only to Kaledupa island, to keep things fast. If you have a specific area elsewhere in Indonesia you would like checked, <a href="mailto:m.hafizt@uq.edu.au">get in touch</a> and it can be run for you, it also helps check the results against real local knowledge.</p>
+    <p>Unlike the AGC calculator, this tool does not currently let you draw your own area to check. Earth Engine's tools for this kind of multi-year historical comparison are less flexible for on-the-fly, user-drawn polygons than for a simpler area calculation, so this app is deployed for one study area at a time, currently Kaledupa island. If you have a specific area elsewhere in Indonesia you would like checked instead, <a href="mailto:m.hafizt@uq.edu.au">get in touch</a> and it can be run for you as a one-off request, it also helps check the results against real local knowledge.</p>
   </div>
 </section>
 
