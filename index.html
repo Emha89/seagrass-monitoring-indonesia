@@ -1,98 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indonesia Seagrass Monitoring Portal</title>
-    <style>
-        /* Base Styling & Visual Layout */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f1f5f9; color: #1e293b; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Navigation Header Bar */
-        header { background-color: #047857; color: white; padding: 15px 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .header-flex { display: flex; justify-content: space-between; align-items: center; }
-        header h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
-        header nav a { color: #a7f3d0; text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.3s; }
-        header nav a:hover { color: white; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Satellite-based tools and PhD research findings on seagrass carbon across Indonesia, from the University of Queensland and BRIN.">
+<title>Indonesia Seagrass — Carbon Mapping Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2A3D;
+    --seagrass:#3E6B52;
+    --seagrass-dark:#2C4D3C;
+    --sand:#F3EFE3;
+    --sand-line:#DBD3BE;
+    --ink:#202821;
+    --ink-muted:#5B6459;
+    --cream:#F3EFE3;
+    --muted-on-navy:#9FB6C2;
+    --sienna:#B1502C;
+    --font-serif:'Fraunces', Georgia, serif;
+    --font-sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:var(--font-sans); color:var(--ink); background:var(--sand); line-height:1.65; }
+  a{ color:var(--seagrass-dark); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--sienna); outline-offset:2px; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3{ font-family:var(--font-serif); font-weight:500; color:inherit; margin:0; }
 
-        /* Key Metrics / KPI Grid Cards */
-        .kpi-section { margin: 30px 0; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .kpi-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-left: 5px solid #10b981; }
-        .kpi-card p { margin: 0; text-transform: uppercase; font-size: 11px; color: #64748b; font-weight: 600; letter-spacing: 0.5px; }
-        .kpi-card h3 { margin: 10px 0 0 0; font-size: 24px; font-weight: 700; color: #0f172a; }
+  header{ background:var(--navy); position:sticky; top:0; z-index:10; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+  .wordmark{ font-family:var(--font-serif); font-size:1.15rem; color:var(--cream); }
+  .wordmark span{ color:var(--muted-on-navy); font-family:var(--font-sans); font-size:0.85rem; display:block; margin-top:2px; }
+  nav a{ color:var(--muted-on-navy); text-decoration:none; font-size:0.9rem; margin-left:22px; }
+  nav a:hover{ color:var(--cream); }
 
-        /* Portal Launch Pad Module */
-        .map-section { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 40px; text-align: center; }
-        .map-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 30px; text-align: left; }
-        .map-header h2 { margin: 0; font-size: 20px; color: #334155; }
-        .map-header p { margin: 5px 0 0 0; font-size: 14px; color: #94a3b8; }
-        
-        /* Interactive Launch Action Box */
-        .launch-box { background: linear-gradient(135deg, #0f766e 0%, #047857 100%); color: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); max-width: 700px; margin: 0 auto; }
-        .launch-box h3 { margin: 0 0 10px 0; font-size: 22px; }
-        .launch-box p { margin: 0 0 25px 0; color: #ccfbf1; font-size: 14px; line-height: 1.5; }
-        .launch-btn { background-color: #ffffff; color: #047857; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, background-color 0.2s; display: inline-block; }
-        .launch-btn:hover { background-color: #f8fafc; transform: translateY(-2px); }
+  .hero{ background:var(--navy); padding:64px 0 72px; }
+  .hero h1{ font-size:clamp(2.1rem, 4.5vw, 3.2rem); color:var(--cream); max-width:16ch; line-height:1.15; }
+  .hero p{ color:var(--muted-on-navy); max-width:62ch; font-size:1.05rem; margin-top:22px; }
 
-        /* Platform Footer */
-        footer { background-color: #1e293b; color: #94a3b8; padding: 20px 0; font-size: 13px; text-align: center; margin-top: 40px; }
-    </style>
+  section.content{ padding:56px 0; }
+  section.content + section.content{ border-top:1px solid var(--sand-line); }
+  section.content h2{ font-size:1.6rem; margin-bottom:16px; }
+  section.content .lede{ max-width:66ch; color:var(--ink-muted); }
+  section.content .lede p + p{ margin-top:14px; }
+
+  .stats-row{ display:flex; flex-wrap:wrap; margin-top:8px; }
+  .stat{ flex:1 1 220px; padding:20px 24px 0 0; border-left:1px solid var(--sand-line); padding-left:24px; }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .value{ font-family:var(--font-serif); font-size:1.9rem; color:var(--seagrass-dark); }
+  .stat .label{ color:var(--ink-muted); font-size:0.88rem; margin-top:4px; }
+
+  .chart-wrap{ border:1px solid var(--sand-line); background:#fff; padding:24px 16px 8px; margin-top:24px; }
+  .agc-chart{ width:100%; height:auto; display:block; }
+  .agc-chart .grid{ stroke:var(--sand-line); stroke-width:1; }
+  .agc-chart .axis-label{ font-family:var(--font-sans); font-size:11px; fill:var(--ink-muted); }
+  .agc-chart .area-fill{ fill:var(--seagrass); opacity:0.08; }
+  .agc-chart .line-path{ fill:none; stroke:var(--seagrass-dark); stroke-width:2.5; stroke-linejoin:round; stroke-linecap:round; }
+  .agc-chart .pt{ fill:var(--sand); stroke:var(--seagrass-dark); stroke-width:2.5; }
+  .chart-caption{ font-size:0.85rem; color:var(--ink-muted); margin-top:12px; padding:0 16px 16px; }
+
+  .embed-frame{ border:1px solid var(--sand-line); background:#fff; margin-top:24px; }
+  .embed-frame iframe{ width:100%; height:680px; border:0; display:block; }
+
+  .tool-card{ border:1px solid var(--sand-line); padding:28px; background:#fff; margin-top:24px; max-width:560px; }
+  .tool-card h3{ font-size:1.15rem; margin-bottom:10px; }
+  .tool-card p{ color:var(--ink-muted); font-size:0.95rem; margin:0 0 20px; }
+  .tool-card .btn{ display:inline-block; background:var(--seagrass); color:#fff; text-decoration:none; padding:10px 18px; font-size:0.9rem; font-weight:500; }
+  .tool-card .btn:hover{ background:var(--seagrass-dark); }
+
+  footer{ background:var(--navy); color:var(--muted-on-navy); padding:48px 0; }
+  footer h2{ color:var(--cream); font-size:1.2rem; margin-bottom:12px; }
+  footer p{ max-width:64ch; font-size:0.92rem; }
+  footer .links{ margin-top:18px; font-size:0.9rem; }
+  footer .links a{ color:var(--cream); margin-right:20px; }
+  footer .sources{ margin-top:22px; font-size:0.8rem; color:#6f8695; max-width:64ch; }
+  footer .contact{ margin-top:18px; font-size:0.85rem; color:var(--muted-on-navy); }
+
+  @media (max-width:720px){
+    .stat{ flex:1 1 45%; border-left:none; padding-left:0; border-top:1px solid var(--sand-line); padding-top:16px; }
+    .stat:first-child{ border-top:none; }
+    nav a{ margin-left:14px; }
+    .embed-frame iframe{ height:520px; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Header Panel -->
-    <header>
-        <div class="container header-flex">
-            <h1>🌱 Indonesia Seagrass Hub</h1>
-            <nav>
-                <a href="#monitoring">Monitoring App</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
-        <!-- Key Statistical Indicators -->
-        <section class="kpi-section">
-            <div class="grid-3">
-                <div class="kpi-card" style="border-left-color: #10b981;">
-                    <p>Total National Seagrass Area</p>
-                    <h3>293,464 Ha</h3>
-                </div>
-                <div class="kpi-card" style="border-left-color: #06b6d4;">
-                    <p>Average Estimated AGC</p>
-                    <h3>Excellent</h3>
-                </div>
-                <div class="kpi-card" style="border-left-color: #f59e0b;">
-                    <p>Spatial Data Status</p>
-                    <h3>Near Real-Time</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dynamic GEE App Portal Deployment Gateway -->
-        <section id="monitoring" class="map-section">
-            <div class="map-header">
-                <h2>Spatial Observation Module</h2>
-                <p>Access our cloud computing engine environment to trace spatial dynamics and structural seagrass baselines.</p>
-            </div>
-            
-            <div class="launch-box">
-                <h3>Indonesia Seagrass Viewer</h3>
-                <p>Google Earth Engine applications run on standalone execution protocols that prevent internal site frame embedding. Click the button below to securely open your high-performance mapping model in a dedicated analysis window.</p>
-                <!-- CORRECTED INDONESIA-SEAGRASS URL LINK -->
-                <a href="https://muhammadhafizt.users.earthengine.app/view/seagrassagcmpaindonsesia" target="_blank" class="launch-btn">
-                    🚀 Launch Interactive GEE App
-                </a>
-            </div>
-        </section>
+<header>
+  <div class="wrap header-row">
+    <div class="wordmark">Indonesia Seagrass
+      <span>Carbon mapping tools</span>
     </div>
+    <nav>
+      <a href="#data">The data</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- System Attribution Footer -->
-    <footer>
-        <p>&copy; 2026 Indonesia Seagrass Monitoring Platform. Driven by Google Earth Engine & Hosted on GitHub Pages.</p>
-    </footer>
+<section class="hero">
+  <div class="wrap">
+    <h1>Indonesia's seagrass, measured in carbon.</h1>
+    <p>Seagrass meadows store carbon in their leaves, roots, and the mud beneath them. Indonesia holds one of the largest shares of this habitat on Earth, an estimated 8,320 to 18,000 square kilometres, around 5 to 7 percent of the global total. This site brings together satellite-based tools and findings from ongoing PhD research at the University of Queensland and BRIN, mapping seagrass carbon across the country from 2017 to 2024.</p>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>About Indonesia's seagrass</h2>
+  <div class="lede">
+    <p>Seagrasses are flowering plants that grow underwater in shallow, sheltered coastal waters. Indonesia holds one of the most varied seagrass floras in the world, from dense meadows of the large, strap-leaved <em>Enhalus acoroides</em> to smaller, fast-growing species only a few centimetres tall. How well a meadow grows depends on water temperature, salinity, light, depth, and the type of seabed beneath it.</p>
+    <p>These meadows do more than store carbon. Their leaves slow down water movement and their roots bind loose sediment, which helps stabilise the coastline. They also shelter fish and invertebrates, supporting the fisheries that coastal communities depend on. Seagrass covers less than 0.2 percent of the ocean floor worldwide, yet holds around 10 percent of the carbon buried in marine sediment each year, a share far larger than its size would suggest.</p>
+  </div>
+</section>
+
+<section class="content wrap" id="data">
+  <h2>What this research found</h2>
+  <div class="lede">
+    <p>Field surveys and satellite imagery were combined to map seagrass carbon across Indonesia every year from 2017 to 2024.</p>
+  </div>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="value">6,895.80 km&sup2;</div>
+      <div class="label">Mapped seagrass extent</div>
+    </div>
+    <div class="stat">
+      <div class="value">2017&ndash;2024</div>
+      <div class="label">Years of continuous carbon mapping</div>
+    </div>
+    <div class="stat">
+      <div class="value">5&ndash;7%</div>
+      <div class="label">Share of the world's seagrass found in Indonesia</div>
+    </div>
+  </div>
+
+  <div class="lede" style="margin-top:36px;">
+    <p>Using satellite imagery and field data, this model estimates the total carbon stored in Indonesia's seagrass leaves each year. Estimates stayed within a narrow band across eight years, from about 169,000 to 194,000 tonnes of carbon, a pattern that points to real year-to-year change in canopy condition rather than noise in the model.</p>
+  </div>
+
+  <div class="chart-wrap">
+    <svg viewBox="0 0 680 260" role="img" aria-labelledby="agc-chart-title" class="agc-chart">
+      <title id="agc-chart-title">Annual total AGC for Indonesia, 2017 to 2024</title>
+      <desc>Line chart of pixel-based total above-ground carbon in kilo tons. Values by year: 2017, 174.7; 2018, 191.4; 2019, 193.7; 2020, 175.3; 2021, 170.4; 2022, 169.1; 2023, 187.0; 2024, 189.6.</desc>
+      <line x1="60" y1="20" x2="620" y2="20" class="grid"/>
+      <line x1="60" y1="120" x2="620" y2="120" class="grid"/>
+      <line x1="60" y1="220" x2="620" y2="220" class="grid"/>
+      <text x="50" y="20" class="axis-label" text-anchor="end" dominant-baseline="middle">200</text>
+      <text x="50" y="120" class="axis-label" text-anchor="end" dominant-baseline="middle">180</text>
+      <text x="50" y="220" class="axis-label" text-anchor="end" dominant-baseline="middle">160</text>
+
+      <polygon points="60,146.7 140,62.9 220,51.6 300,143.4 380,168.0 460,174.4 540,84.8 620,71.9 620,220 60,220" class="area-fill"/>
+      <polyline points="60,146.7 140,62.9 220,51.6 300,143.4 380,168.0 460,174.4 540,84.8 620,71.9" class="line-path"/>
+
+      <circle cx="60" cy="146.7" r="4" class="pt"><title>2017: 174.7 kt C</title></circle>
+      <circle cx="140" cy="62.9" r="4" class="pt"><title>2018: 191.4 kt C</title></circle>
+      <circle cx="220" cy="51.6" r="4" class="pt"><title>2019: 193.7 kt C</title></circle>
+      <circle cx="300" cy="143.4" r="4" class="pt"><title>2020: 175.3 kt C</title></circle>
+      <circle cx="380" cy="168.0" r="4" class="pt"><title>2021: 170.4 kt C</title></circle>
+      <circle cx="460" cy="174.4" r="4" class="pt"><title>2022: 169.1 kt C</title></circle>
+      <circle cx="540" cy="84.8" r="4" class="pt"><title>2023: 187.0 kt C</title></circle>
+      <circle cx="620" cy="71.9" r="4" class="pt"><title>2024: 189.6 kt C</title></circle>
+
+      <text x="60" y="240" class="axis-label" text-anchor="middle">2017</text>
+      <text x="140" y="240" class="axis-label" text-anchor="middle">2018</text>
+      <text x="220" y="240" class="axis-label" text-anchor="middle">2019</text>
+      <text x="300" y="240" class="axis-label" text-anchor="middle">2020</text>
+      <text x="380" y="240" class="axis-label" text-anchor="middle">2021</text>
+      <text x="460" y="240" class="axis-label" text-anchor="middle">2022</text>
+      <text x="540" y="240" class="axis-label" text-anchor="middle">2023</text>
+      <text x="620" y="240" class="axis-label" text-anchor="middle">2024</text>
+    </svg>
+    <p class="chart-caption">Pixel-based total above-ground carbon (AGC), in kilo tons of carbon, across Indonesia's 6,895.80 km&sup2; mapped seagrass extent. Source: PhD thesis, Chapter 5, Appendix E.</p>
+  </div>
+</section>
+
+<section class="content wrap" id="calculator">
+  <h2>Estimate carbon for your own area</h2>
+  <div class="lede">
+    <p>Draw a shape anywhere on the map below and this tool calculates an above-ground carbon estimate for that exact area, along with a trend forecast through 2024.</p>
+  </div>
+  <div class="embed-frame">
+    <iframe src="https://muhammadhafizt.users.earthengine.app/view/seagrassagcmpaindonsesia" title="Seagrass AGC calculator"></iframe>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>Also on this site</h2>
+  <div class="tool-card">
+    <h3>Track where seagrass is changing</h3>
+    <p>A complementary tool that follows seagrass presence over time in monitored areas, built from Sentinel-2 imagery and a classifier trained on field surveys from BRIN, UGM, KKP, and the Allen Coral Atlas.</p>
+    <a class="btn" href="https://muhammadhafizt.users.earthengine.app/view/indonesia-seagrass-alert" target="_blank" rel="noopener noreferrer">Open the change alert tool</a>
+  </div>
+</section>
+
+<footer id="about">
+  <div class="wrap">
+    <h2>About this research</h2>
+    <p>These tools are part of a PhD thesis on satellite-based seagrass carbon estimation in Indonesia, at the University of Queensland in partnership with BRIN. Estimates are modelled from field surveys and satellite imagery, and are still being extended and validated in more regions.</p>
+    <div class="links">
+      <a href="https://github.com/emha89/seagrass-monitoring-indonesia" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
+    </div>
+    <p class="sources">Key sources: Fourqurean et al. (2012), Nature Geoscience; Bj&ouml;rk et al. (2008), IUCN; Lima et al. (2023), Hydrobiologia; Unsworth et al. (2018), Science of the Total Environment; McKenzie et al. (2020), Environmental Research Letters.</p>
+    <div class="contact">Contact: m.hafizt@uq.edu.au</div>
+  </div>
+</footer>
 
 </body>
 </html>
