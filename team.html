@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="gate.js"></script>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The supervisory team and data contributors behind this research.">
+<title>Team &amp; Acknowledgments — Indonesia Seagrass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2A3D; --seagrass:#3E6B52; --seagrass-dark:#2C4D3C;
+    --sand:#F3EFE3; --sand-line:#DBD3BE; --ink:#202821; --ink-muted:#5B6459;
+    --cream:#F3EFE3; --muted-on-navy:#9FB6C2; --sienna:#B1502C;
+    --font-serif:'Fraunces', Georgia, serif;
+    --font-sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:var(--font-sans); color:var(--ink); background:var(--sand); line-height:1.65; }
+  a{ color:var(--seagrass-dark); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--sienna); outline-offset:2px; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3{ font-family:var(--font-serif); font-weight:500; color:inherit; margin:0; }
+
+  header{ background:var(--navy); position:sticky; top:0; z-index:10; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+  .wordmark{ font-family:var(--font-serif); font-size:1.15rem; color:var(--cream); text-decoration:none; }
+  .wordmark span{ color:var(--muted-on-navy); font-family:var(--font-sans); font-size:0.85rem; display:block; margin-top:2px; }
+  nav a{ color:var(--muted-on-navy); text-decoration:none; font-size:0.85rem; margin-left:14px; }
+  nav a:hover{ color:var(--cream); }
+
+  .hero{ background:var(--navy); padding:64px 0 72px; }
+  .hero h1{ font-size:clamp(2.1rem, 4.5vw, 3.2rem); color:var(--cream); max-width:18ch; line-height:1.15; }
+  .hero p{ color:var(--muted-on-navy); max-width:62ch; font-size:1.05rem; margin-top:22px; }
+
+  section.content{ padding:56px 0; }
+  section.content + section.content{ border-top:1px solid var(--sand-line); }
+  section.content h2{ font-size:1.6rem; margin-bottom:8px; }
+  section.content .lede{ max-width:66ch; color:var(--ink-muted); margin-bottom:24px; }
+
+  .people-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .person-card{ border:1px solid var(--sand-line); padding:22px; background:#fff; }
+  .person-card .name{ font-family:var(--font-serif); font-size:1.1rem; margin-bottom:2px; }
+  .person-card .role{ color:var(--seagrass-dark); font-size:0.85rem; font-weight:500; margin-bottom:6px; }
+  .person-card .affil{ color:var(--ink-muted); font-size:0.88rem; margin-bottom:10px; }
+  .person-card .note{ color:var(--ink-muted); font-size:0.88rem; font-style:italic; margin-bottom:10px; }
+  .person-card a{ font-size:0.85rem; font-weight:500; }
+
+  .contrib-group{ margin-bottom:26px; }
+  .contrib-group h3{ font-size:1rem; color:var(--seagrass-dark); margin-bottom:8px; }
+  .contrib-group ul{ margin:0; padding-left:20px; color:var(--ink-muted); font-size:0.95rem; }
+  .contrib-group li{ margin-bottom:4px; }
+  .contrib-group .contrib-note{ font-size:0.85rem; color:var(--ink-muted); }
+
+  footer{ background:var(--navy); color:var(--muted-on-navy); padding:48px 0; }
+  footer h2{ color:var(--cream); font-size:1.2rem; margin-bottom:12px; }
+  footer p{ max-width:64ch; font-size:0.92rem; }
+  footer .contact{ margin-top:18px; font-size:0.85rem; color:var(--muted-on-navy); }
+
+  @media (max-width:720px){
+    nav a{ margin-left:10px; font-size:0.8rem; }
+    .people-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">Indonesia Seagrass
+      <span>Carbon mapping tools</span>
+    </a>
+    <nav>
+      <a href="index.html#data">Data</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="alert.html">Change alert</a>
+      <a href="field-data.html">Contribute</a>
+      <a href="team.html">Team</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>The people behind this research.</h1>
+    <p>This work rests on a supervisory team spanning two universities and field data shared by researchers and institutions across Indonesia.</p>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>Supervisory team</h2>
+  <div class="people-grid">
+    <div class="person-card">
+      <div class="name">Chris Roelfsema</div>
+      <div class="role">Principal Supervisor</div>
+      <div class="affil">Associate Professor, School of the Environment, The University of Queensland</div>
+      <div class="note">Guidance throughout the PhD, from methodology to networking opportunities.</div>
+      <a href="https://environment.uq.edu.au/profile/8972/chris-roelfsema" target="_blank" rel="noopener noreferrer">View profile &rarr;</a>
+    </div>
+    <div class="person-card">
+      <div class="name">Stuart Phinn</div>
+      <div class="role">Supervisor</div>
+      <div class="affil">Professor, School of the Environment, The University of Queensland</div>
+      <div class="note">Mentorship that shaped the scientific thinking behind this work.</div>
+      <a href="https://environment.uq.edu.au/profile/13550/stuart-phinn" target="_blank" rel="noopener noreferrer">View profile &rarr;</a>
+    </div>
+    <div class="person-card">
+      <div class="name">Kathryn McMahon</div>
+      <div class="role">Supervisor</div>
+      <div class="affil">Professor, School of Science, Edith Cowan University</div>
+      <div class="note">Guidance on seagrass ecology and the characteristics of Indonesia's seagrass ecosystems.</div>
+      <a href="https://www.ecu.edu.au/schools/science/staff/profiles/associate-deans/professor-kathryn-mcmahon" target="_blank" rel="noopener noreferrer">View profile &rarr;</a>
+    </div>
+    <div class="person-card">
+      <div class="name">Mitchell Lyons</div>
+      <div class="role">Supervisor</div>
+      <div class="affil">Senior Research Fellow, University of New South Wales (also University of Queensland)</div>
+      <div class="note">Introduced programming techniques for large-scale mapping and big-data analysis.</div>
+      <a href="https://research.unsw.edu.au/people/dr-mitchell-lyons" target="_blank" rel="noopener noreferrer">View profile &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>Data contributors</h2>
+  <div class="lede">
+    <p>Field data behind this research was shared by researchers, institutions, and partnerships across Indonesia and Australia.</p>
+  </div>
+
+  <div class="contrib-group">
+    <h3>National Research and Innovation Agency, Indonesia (BRIN)</h3>
+    <ul>
+      <li>Andri Irawan</li>
+      <li>Susi Rahmawati</li>
+    </ul>
+  </div>
+
+  <div class="contrib-group">
+    <h3>Universitas Gadjah Mada, Indonesia</h3>
+    <ul>
+      <li>Setiawan Djody Harahap</li>
+      <li>Amanda Maishella</li>
+      <li>Filman Firdausman</li>
+      <li>Indinna Shofia Astuty</li>
+    </ul>
+  </div>
+
+  <div class="contrib-group">
+    <h3>The University of Queensland, Australia</h3>
+    <ul>
+      <li>Dr Dylan Cowley <span class="contrib-note">&mdash; modelled wave remote sensing datasets</span></li>
+    </ul>
+  </div>
+
+  <div class="contrib-group">
+    <h3>Data partnerships</h3>
+    <ul>
+      <li>IndoPacific Blue Carbon DataHub</li>
+      <li>Allen Coral Atlas</li>
+      <li>Indonesia Seagrass Mapping Partnership</li>
+    </ul>
+  </div>
+</section>
+
+<footer id="about">
+  <div class="wrap">
+    <h2>About this research</h2>
+    <p>These tools are part of a PhD thesis on satellite-based seagrass carbon estimation in Indonesia, at the University of Queensland in partnership with BRIN.</p>
+    <div class="contact">Contact: m.hafizt@uq.edu.au</div>
+  </div>
+</footer>
+
+</body>
+</html>
