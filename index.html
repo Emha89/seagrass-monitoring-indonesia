@@ -32,7 +32,7 @@
 
   header{ background:var(--navy); position:sticky; top:0; z-index:10; }
   .header-row{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
-  .wordmark{ font-family:var(--font-serif); font-size:1.15rem; color:var(--cream); }
+  .wordmark{ font-family:var(--font-serif); font-size:1.15rem; color:var(--cream); text-decoration:none; }
   .wordmark span{ color:var(--muted-on-navy); font-family:var(--font-sans); font-size:0.85rem; display:block; margin-top:2px; }
   nav a{ color:var(--muted-on-navy); text-decoration:none; font-size:0.9rem; margin-left:22px; }
   nav a:hover{ color:var(--cream); }
@@ -64,6 +64,14 @@
 
   .embed-frame{ border:1px solid var(--sand-line); background:#fff; margin-top:24px; }
   .embed-frame iframe{ width:100%; height:680px; border:0; display:block; }
+  .embed-frame-full{ border-top:1px solid var(--sand-line); border-bottom:1px solid var(--sand-line); background:#fff; margin-top:28px; }
+  .embed-frame-full iframe{ width:100%; height:90vh; min-height:640px; border:0; display:block; }
+  .howto{ margin-top:28px; max-width:66ch; }
+  .howto h3{ font-size:1.05rem; margin-bottom:10px; }
+  .howto ol{ margin:0; padding-left:20px; color:var(--ink-muted); font-size:0.95rem; }
+  .howto li{ margin-bottom:8px; }
+  .howto li strong{ color:var(--ink); }
+  .context-note{ font-size:0.88rem; color:var(--ink-muted); margin-top:16px; max-width:66ch; }
 
   .tool-card{ border:1px solid var(--sand-line); padding:28px; background:#fff; margin-top:24px; max-width:560px; }
   .tool-card h3{ font-size:1.15rem; margin-bottom:10px; }
@@ -84,6 +92,7 @@
     .stat:first-child{ border-top:none; }
     nav a{ margin-left:14px; }
     .embed-frame iframe{ height:520px; }
+    .embed-frame-full iframe{ height:75vh; min-height:480px; }
   }
 </style>
 </head>
@@ -91,12 +100,13 @@
 
 <header>
   <div class="wrap header-row">
-    <div class="wordmark">Indonesia Seagrass
+    <a class="wordmark" href="index.html">Indonesia Seagrass
       <span>Carbon mapping tools</span>
-    </div>
+    </a>
     <nav>
       <a href="#data">The data</a>
       <a href="#calculator">Calculator</a>
+      <a href="alert.html">Change alert</a>
       <a href="#about">About</a>
     </nav>
   </div>
@@ -177,13 +187,26 @@
   </div>
 </section>
 
-<section class="content wrap" id="calculator">
-  <h2>Estimate carbon for your own area</h2>
-  <div class="lede">
-    <p>Draw a shape anywhere on the map below and this tool calculates an above-ground carbon estimate for that exact area, along with a trend forecast through 2024.</p>
+<section class="content" id="calculator">
+  <div class="wrap">
+    <h2>Estimate carbon for your own area</h2>
+    <div class="lede">
+      <p>Draw a shape anywhere on the map below and this tool calculates an above-ground carbon estimate for that exact area, along with a trend forecast through 2024.</p>
+    </div>
+    <div class="howto">
+      <h3>How to use this tool</h3>
+      <ol>
+        <li><strong>Zoom to your area.</strong> Use the search box or the map controls to navigate to the location you want to check.</li>
+        <li><strong>Draw your polygon.</strong> Click "Draw AOI", then click points on the map to trace a shape, and click the first point again to close it.</li>
+        <li><strong>Read the results.</strong> The panel on the right shows the estimated carbon total and a trend forecast for the area you drew.</li>
+      </ol>
+    </div>
   </div>
-  <div class="embed-frame">
+  <div class="embed-frame-full">
     <iframe src="https://muhammadhafizt.users.earthengine.app/view/seagrassagcmpaindonsesia" title="Seagrass AGC calculator"></iframe>
+  </div>
+  <div class="wrap">
+    <p class="context-note">For reference, Indonesia's national annual total sits between about 169,000 and 194,000 tonnes of carbon (see the chart above), so you can compare your own area against the national picture. Estimates are modelled and best read as an indication, not a survey-grade measurement.</p>
   </div>
 </section>
 
@@ -192,7 +215,7 @@
   <div class="tool-card">
     <h3>Track where seagrass is changing</h3>
     <p>A complementary tool that follows seagrass presence over time in monitored areas, built from Sentinel-2 imagery and a classifier trained on field surveys from BRIN, UGM, KKP, and the Allen Coral Atlas.</p>
-    <a class="btn" href="https://muhammadhafizt.users.earthengine.app/view/indonesia-seagrass-alert" target="_blank" rel="noopener noreferrer">Open the change alert tool</a>
+    <a class="btn" href="alert.html">Visit the change alert page</a>
   </div>
 </section>
 

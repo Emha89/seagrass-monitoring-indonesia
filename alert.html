@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Track where seagrass is changing across Indonesia using satellite imagery and field-verified data.">
+<title>Change Alert — Indonesia Seagrass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2A3D;
+    --seagrass:#3E6B52;
+    --seagrass-dark:#2C4D3C;
+    --sand:#F3EFE3;
+    --sand-line:#DBD3BE;
+    --ink:#202821;
+    --ink-muted:#5B6459;
+    --cream:#F3EFE3;
+    --muted-on-navy:#9FB6C2;
+    --sienna:#B1502C;
+    --font-serif:'Fraunces', Georgia, serif;
+    --font-sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:var(--font-sans); color:var(--ink); background:var(--sand); line-height:1.65; }
+  a{ color:var(--seagrass-dark); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--sienna); outline-offset:2px; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3{ font-family:var(--font-serif); font-weight:500; color:inherit; margin:0; }
+
+  header{ background:var(--navy); position:sticky; top:0; z-index:10; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+  .wordmark{ font-family:var(--font-serif); font-size:1.15rem; color:var(--cream); text-decoration:none; }
+  .wordmark span{ color:var(--muted-on-navy); font-family:var(--font-sans); font-size:0.85rem; display:block; margin-top:2px; }
+  nav a{ color:var(--muted-on-navy); text-decoration:none; font-size:0.9rem; margin-left:22px; }
+  nav a:hover{ color:var(--cream); }
+
+  .hero{ background:var(--navy); padding:64px 0 72px; }
+  .hero h1{ font-size:clamp(2.1rem, 4.5vw, 3.2rem); color:var(--cream); max-width:18ch; line-height:1.15; }
+  .hero p{ color:var(--muted-on-navy); max-width:62ch; font-size:1.05rem; margin-top:22px; }
+
+  section.content{ padding:56px 0; }
+  section.content h2{ font-size:1.6rem; margin-bottom:16px; }
+  section.content .lede{ max-width:66ch; color:var(--ink-muted); }
+  section.content .lede p + p{ margin-top:14px; }
+
+  .embed-frame-full{ border-top:1px solid var(--sand-line); border-bottom:1px solid var(--sand-line); background:#fff; margin-top:28px; }
+  .embed-frame-full iframe{ width:100%; height:90vh; min-height:640px; border:0; display:block; }
+  .howto{ margin-top:28px; max-width:66ch; }
+  .howto h3{ font-size:1.05rem; margin-bottom:10px; }
+  .howto p{ color:var(--ink-muted); font-size:0.95rem; }
+  .context-note{ font-size:0.88rem; color:var(--ink-muted); margin-top:16px; max-width:66ch; }
+
+  .cross-link{ border:1px solid var(--sand-line); padding:24px 28px; background:#fff; margin-top:24px; max-width:560px; }
+  .cross-link p{ color:var(--ink-muted); font-size:0.95rem; margin:0 0 14px; }
+  .cross-link a{ font-weight:500; }
+
+  footer{ background:var(--navy); color:var(--muted-on-navy); padding:48px 0; }
+  footer h2{ color:var(--cream); font-size:1.2rem; margin-bottom:12px; }
+  footer p{ max-width:64ch; font-size:0.92rem; }
+  footer .links{ margin-top:18px; font-size:0.9rem; }
+  footer .links a{ color:var(--cream); margin-right:20px; }
+  footer .contact{ margin-top:18px; font-size:0.85rem; color:var(--muted-on-navy); }
+
+  @media (max-width:720px){
+    nav a{ margin-left:14px; }
+    .embed-frame-full iframe{ height:75vh; min-height:480px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">Indonesia Seagrass
+      <span>Carbon mapping tools</span>
+    </a>
+    <nav>
+      <a href="index.html#calculator">Calculator</a>
+      <a href="alert.html">Change alert</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Tracking where seagrass is changing.</h1>
+    <p>This tool follows seagrass presence over time in monitored areas, built from Sentinel-2 imagery and a classifier trained on field surveys from BRIN, UGM, KKP, and the Allen Coral Atlas. It complements the AGC calculator by showing where seagrass has appeared or disappeared, rather than how much carbon it holds.</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+    <h2>Change alert map</h2>
+    <div class="lede">
+      <p>Use the map below to explore how seagrass presence has shifted over time within the monitored study area.</p>
+    </div>
+    <div class="howto">
+      <h3>How to use this tool</h3>
+      <p>Use the layer and time controls inside the map to switch between years and see where seagrass has appeared or disappeared. Zoom and pan like any online map to explore specific locations.</p>
+    </div>
+  </div>
+  <div class="embed-frame-full">
+    <iframe src="https://muhammadhafizt.users.earthengine.app/view/indonesia-seagrass-alert" title="Seagrass change alert"></iframe>
+  </div>
+  <div class="wrap">
+    <p class="context-note">This tool currently covers a fixed study area rather than all of Indonesia. Estimates are modelled from satellite imagery and are best read as an indication, not a survey-grade measurement.</p>
+    <div class="cross-link">
+      <p>Want a carbon estimate instead of a change map? Draw your own area on the AGC calculator to get a carbon total and forecast.</p>
+      <a href="index.html#calculator">Go to the AGC calculator &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer id="about">
+  <div class="wrap">
+    <h2>About this research</h2>
+    <p>These tools are part of a PhD thesis on satellite-based seagrass carbon estimation in Indonesia, at the University of Queensland in partnership with BRIN. Estimates are modelled from field surveys and satellite imagery, and are still being extended and validated in more regions.</p>
+    <div class="links">
+      <a href="https://github.com/emha89/seagrass-monitoring-indonesia" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
+    </div>
+    <div class="contact">Contact: m.hafizt@uq.edu.au</div>
+  </div>
+</footer>
+
+</body>
+</html>
