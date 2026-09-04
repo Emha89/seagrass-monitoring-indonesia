@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Draw your own area and get an above-ground carbon estimate for seagrass anywhere in Indonesia.">
-<title>AGC Calculator — Indonesia Seagrass</title>
+<meta name="description" content="A pilot tool that flags where seagrass may have recently disappeared in Komodo National Park.">
+<title>Change Alert — Indonesia Seagrass</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -37,13 +37,16 @@
   .hero p{ color:var(--muted-on-navy); max-width:62ch; font-size:1.05rem; margin-top:22px; }
 
   section.content{ padding:56px 0; }
+  section.content + section.content{ border-top:1px solid var(--sand-line); }
   section.content h2{ font-size:1.6rem; margin-bottom:16px; }
   section.content .lede{ max-width:66ch; color:var(--ink-muted); }
+  section.content .lede p + p{ margin-top:14px; }
+
+  .pilot-flag{ display:inline-block; background:#FDF2EC; border:1px solid var(--sienna); color:var(--sienna); font-size:0.8rem; font-weight:500; padding:4px 10px; margin-bottom:14px; }
 
   .embed-frame-full{ border-top:1px solid var(--sand-line); border-bottom:1px solid var(--sand-line); background:#fff; margin-top:28px; }
   .embed-frame-full iframe{ width:100%; height:90vh; min-height:640px; border:0; display:block; }
-  .howto{ margin-top:28px; max-width:66ch; }
-  .howto h3{ font-size:1.05rem; margin-bottom:10px; }
+  .howto{ margin-top:8px; max-width:66ch; }
   .howto ol{ margin:0; padding-left:20px; color:var(--ink-muted); font-size:0.95rem; }
   .howto li{ margin-bottom:8px; }
   .howto li strong{ color:var(--ink); }
@@ -56,8 +59,6 @@
   footer{ background:var(--navy); color:var(--muted-on-navy); padding:48px 0; }
   footer h2{ color:var(--cream); font-size:1.2rem; margin-bottom:12px; }
   footer p{ max-width:64ch; font-size:0.92rem; }
-  footer .links{ margin-top:18px; font-size:0.9rem; }
-  footer .links a{ color:var(--cream); margin-right:20px; }
   footer .contact{ margin-top:18px; font-size:0.85rem; color:var(--muted-on-navy); }
 
   @media (max-width:720px){
@@ -85,31 +86,41 @@
 
 <section class="hero">
   <div class="wrap">
-    <h1>Estimate carbon for your own area.</h1>
-    <p>Draw a shape anywhere on the map below and this tool calculates an above-ground carbon estimate for that exact area, along with a trend forecast through 2024.</p>
+    <span class="pilot-flag">Pilot project</span>
+    <h1>Flagging where seagrass may have disappeared.</h1>
+    <p>For Komodo National Park, this tool compares each season against nine years of history to flag spots where seagrass used to reliably grow but currently does not. It complements the AGC calculator by pointing to where change may be happening, rather than how much carbon an area holds.</p>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>About this tool</h2>
+  <div class="lede">
+    <p>For each three-month season, this tool classifies every location in Komodo National Park as seagrass present or absent, then compares that against how often the same season was classified present over the previous nine years (2017&ndash;2025). A spot that is usually present but currently absent is flagged as a provisional alert. If the same drop also shows up in the season before, it becomes a confirmed alert.</p>
+    <p>This is a pilot. The change-detection logic has not yet been fully validated by research, so flagged pixels are best treated as leads worth checking on the ground, not confirmed facts. An empty confirmed-alert result does not necessarily mean an area is safe, either. Confirmed alerts need clear satellite images in two seasons in a row, which can be hard to get during the rainy season.</p>
+    <p>The underlying model was trained on presence and absence data from across Indonesia, but this app currently applies it only to Komodo National Park, to keep things fast. If you have a specific area elsewhere in Indonesia you would like checked, <a href="mailto:m.hafizt@uq.edu.au">get in touch</a> and it can be run for you, it also helps check the results against real local knowledge.</p>
   </div>
 </section>
 
 <section class="content">
   <div class="wrap">
-    <h2>AGC calculator</h2>
+    <h2>Change alert map</h2>
     <div class="howto">
-      <h3>How to use this tool</h3>
       <ol>
-        <li><strong>Zoom to your area.</strong> Use the search box or the map controls to navigate to the location you want to check.</li>
-        <li><strong>Draw your polygon.</strong> Click "Draw AOI", then click points on the map to trace a shape, and click the first point again to close it.</li>
-        <li><strong>Read the results.</strong> The panel on the right shows the estimated carbon total and a trend forecast for the area you drew.</li>
+        <li><strong>Check the current status.</strong> Click "Check current status" to see the most recently completed season, worked out automatically from today's date.</li>
+        <li><strong>Or explore past seasons.</strong> Pick a Year and Season, then click "Analyze this season" to check a specific past period.</li>
+        <li><strong>Check for a confirmed pattern.</strong> Click "Check consistency with previous season" to see whether a drop also showed up the season before, which makes it a confirmed alert rather than just provisional.</li>
+        <li><strong>Turn on the alert layers.</strong> Switch on "Provisional alert" or "Confirmed alert" on the map to see flagged locations. "Baseline rate" shows how often each spot was historically present. It can take a little while to load, since it's checking nine years of imagery.</li>
       </ol>
     </div>
   </div>
   <div class="embed-frame-full">
-    <iframe src="https://muhammadhafizt.users.earthengine.app/view/seagrassagcmpaindonsesia" title="Seagrass AGC calculator"></iframe>
+    <iframe src="https://muhammadhafizt.users.earthengine.app/view/indonesia-seagrass-alert" title="Seagrass change alert"></iframe>
   </div>
   <div class="wrap">
-    <p class="context-note">For reference, Indonesia's national annual total sits between about 169,000 and 194,000 tonnes of carbon (<a href="index.html#data">see the national chart</a>), so you can compare your own area against the national picture. Estimates are modelled and best read as an indication, not a survey-grade measurement.</p>
+    <p class="context-note">Model accuracy is about 87%, based on validation across Indonesia-wide field data, not specific to Komodo. Results shown under "Explore Historical Seasons" describe that one past season only, not current, ongoing status.</p>
     <div class="cross-link">
-      <p>Want to see where seagrass has changed over time instead of a carbon total? Try the change alert tool.</p>
-      <a href="alert.html">Go to the change alert tool &rarr;</a>
+      <p>Want a carbon estimate instead of a change map? Draw your own area on the AGC calculator to get a carbon total and forecast.</p>
+      <a href="calculator.html">Go to the AGC calculator &rarr;</a>
     </div>
   </div>
 </section>
@@ -118,9 +129,6 @@
   <div class="wrap">
     <h2>About this research</h2>
     <p>These tools are part of a PhD thesis on satellite-based seagrass carbon estimation in Indonesia, at the University of Queensland in partnership with BRIN. Estimates are modelled from field surveys and satellite imagery, and are still being extended and validated in more regions.</p>
-    <div class="links">
-      <a href="https://github.com/emha89/seagrass-monitoring-indonesia" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
-    </div>
     <div class="contact">Contact: m.hafizt@uq.edu.au</div>
   </div>
 </footer>
