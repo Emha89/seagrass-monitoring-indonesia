@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A pilot tool that flags where seagrass may have recently disappeared in Kaledupa island.">
+<meta name="description" content="A pilot tool that flags where seagrass may have recently disappeared, for a requested study area in Indonesia.">
 <title>Change Alert — Indonesia Seagrass</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
   *{ box-sizing:border-box; }
   body{ margin:0; font-family:var(--font-sans); color:var(--ink); background:var(--sand); line-height:1.65; }
   a{ color:var(--seagrass-dark); }
-  a:focus-visible, button:focus-visible{ outline:2px solid var(--sienna); outline-offset:2px; }
+  a:focus-visible, button:focus-visible, label:focus-visible{ outline:2px solid var(--sienna); outline-offset:2px; }
   .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
   h1,h2,h3{ font-family:var(--font-serif); font-weight:500; color:inherit; margin:0; }
 
@@ -29,7 +29,7 @@
   .header-row{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
   .wordmark{ font-family:var(--font-serif); font-size:1.15rem; color:var(--cream); text-decoration:none; }
   .wordmark span{ color:var(--muted-on-navy); font-family:var(--font-sans); font-size:0.85rem; display:block; margin-top:2px; }
-  nav a{ color:var(--muted-on-navy); text-decoration:none; font-size:0.88rem; margin-left:18px; }
+  nav a{ color:var(--muted-on-navy); text-decoration:none; font-size:0.85rem; margin-left:14px; }
   nav a:hover{ color:var(--cream); }
 
   .hero{ background:var(--navy); padding:64px 0 72px; }
@@ -56,14 +56,36 @@
   .cross-link p{ color:var(--ink-muted); font-size:0.95rem; margin:0 0 14px; }
   .cross-link a{ font-weight:500; }
 
+  .loc-accordion{ margin-top:20px; border-top:1px solid var(--sand-line); }
+  .loc-radio{ position:absolute; opacity:0; pointer-events:none; }
+  .loc-tab{ display:flex; align-items:center; justify-content:space-between; padding:16px 4px; border-bottom:1px solid var(--sand-line); cursor:pointer; font-family:var(--font-serif); font-size:1.05rem; }
+  .loc-tab:hover{ color:var(--seagrass-dark); }
+  .loc-tab::after{ content:"+"; color:var(--ink-muted); font-size:1.2rem; }
+  .loc-radio:checked + .loc-tab::after{ content:"\2013"; }
+  .loc-radio:checked + .loc-tab{ color:var(--seagrass-dark); }
+  .loc-panel{ display:none; padding:20px 4px 32px; border-bottom:1px solid var(--sand-line); }
+  .loc-radio:checked + .loc-tab + .loc-panel{ display:block; }
+  .loc-gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .loc-gallery figure{ margin:0; }
+  .loc-gallery img{ width:100%; height:auto; display:block; border:1px solid var(--sand-line); }
+  .loc-gallery figcaption{ font-size:0.8rem; color:var(--ink-muted); margin-top:4px; }
+  .loc-chart-wrap{ margin-top:24px; max-width:400px; }
+  .loc-chart{ width:100%; height:auto; display:block; }
+  .lc-grid{ stroke:var(--sand-line); stroke-width:1; }
+  .lc-label{ font-family:var(--font-sans); font-size:10px; fill:var(--ink-muted); }
+  .lc-axis-title{ font-family:var(--font-sans); font-size:9px; font-weight:500; fill:var(--ink-muted); }
+  .lc-actual{ fill:none; stroke:var(--seagrass-dark); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .rc-stats{ font-size:0.82rem; color:var(--ink-muted); margin-top:8px; }
+
   footer{ background:var(--navy); color:var(--muted-on-navy); padding:48px 0; }
   footer h2{ color:var(--cream); font-size:1.2rem; margin-bottom:12px; }
   footer p{ max-width:64ch; font-size:0.92rem; }
   footer .contact{ margin-top:18px; font-size:0.85rem; color:var(--muted-on-navy); }
 
   @media (max-width:720px){
-    nav a{ margin-left:12px; }
+    nav a{ margin-left:10px; font-size:0.8rem; }
     .embed-frame-full iframe{ height:75vh; min-height:480px; }
+    .loc-gallery{ grid-template-columns:1fr 1fr; }
   }
 </style>
 </head>
@@ -79,6 +101,7 @@
       <a href="calculator.html">Calculator</a>
       <a href="alert.html">Change alert</a>
       <a href="field-data.html">Contribute</a>
+      <a href="team.html">Team</a>
       <a href="index.html#about">About</a>
     </nav>
   </div>
@@ -88,16 +111,16 @@
   <div class="wrap">
     <span class="pilot-flag">Pilot project</span>
     <h1>Flagging where seagrass may have disappeared.</h1>
-    <p>For Kaledupa island, this tool compares each season against nine years of history to flag spots where seagrass used to reliably grow but currently does not. It complements the AGC calculator by pointing to where change may be happening, rather than how much carbon an area holds.</p>
+    <p>For a chosen study area, this tool compares each season against nine years of history to flag spots where seagrass used to reliably grow but currently does not. It complements the AGC calculator by pointing to where change may be happening, rather than how much carbon an area holds.</p>
   </div>
 </section>
 
 <section class="content wrap">
   <h2>About this tool</h2>
   <div class="lede">
-    <p>For each three-month season, this tool classifies every location in Kaledupa island as seagrass present or absent, then compares that against how often the same season was classified present over the previous nine years (2017&ndash;2025). A spot that is usually present but currently absent is flagged as a provisional alert. If the same drop also shows up in the season before, it becomes a confirmed alert.</p>
+    <p>For each three-month season, this tool classifies a chosen study area as seagrass present or absent, then compares that against how often the same season was classified present over the previous nine years (2017&ndash;2025). A spot that is usually present but currently absent is flagged as a provisional alert. If the same drop also shows up in the season before, it becomes a confirmed alert.</p>
     <p>This is a pilot. The change-detection logic has not yet been fully validated by research, so flagged pixels are best treated as leads worth checking on the ground, not confirmed facts. An empty confirmed-alert result does not necessarily mean an area is safe, either. Confirmed alerts need clear satellite images in two seasons in a row, which can be hard to get during the rainy season.</p>
-    <p>Unlike the AGC calculator, this tool does not currently let you draw your own area to check. Earth Engine's tools for this kind of multi-year historical comparison are less flexible for on-the-fly, user-drawn polygons than for a simpler area calculation, so this app is deployed for one study area at a time, currently Kaledupa island. If you have a specific area elsewhere in Indonesia you would like checked instead, <a href="mailto:m.hafizt@uq.edu.au">get in touch</a> and it can be run for you as a one-off request, it also helps check the results against real local knowledge.</p>
+    <p>Unlike the AGC calculator, this tool does not currently let you draw your own area to check. Earth Engine's tools for this kind of multi-year historical comparison are less flexible for on-the-fly, user-drawn polygons than for a simpler area calculation, so this app is deployed for one study area at a time. If you have a specific area in Indonesia you would like checked, <a href="mailto:m.hafizt@uq.edu.au">get in touch by email</a> and the results will be added here once run, it also helps check the results against real local knowledge.</p>
   </div>
 </section>
 
@@ -117,10 +140,72 @@
     <iframe src="https://muhammadhafizt.users.earthengine.app/view/indonesia-seagrass-alert" title="Seagrass change alert"></iframe>
   </div>
   <div class="wrap">
-    <p class="context-note">Model accuracy is about 87%, based on validation across Indonesia-wide field data, not specific to Kaledupa island. Results shown under "Explore Historical Seasons" describe that one past season only, not current, ongoing status.</p>
+    <p class="context-note">Model accuracy is about 87%, based on validation across Indonesia-wide field data, not specific to any one study area. Results shown under "Explore Historical Seasons" describe that one past season only, not current, ongoing status.</p>
     <div class="cross-link">
       <p>Want a carbon estimate instead of a change map? Draw your own area on the AGC calculator to get a carbon total and forecast.</p>
       <a href="calculator.html">Go to the AGC calculator &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>Example results</h2>
+  <div class="lede">
+    <p>Locations already checked with this tool. More will be added here as new areas are requested and run.</p>
+  </div>
+
+  <div class="loc-accordion">
+    <input type="radio" name="loc-select" id="loc-pari" class="loc-radio" checked>
+    <label for="loc-pari" class="loc-tab">Pari, Kepulauan Seribu</label>
+    <div class="loc-panel">
+      <div class="loc-gallery">
+        <figure>
+          <img src="seagrass-alert-pari/pari-baselineRate.png" alt="Baseline rate map for Pari">
+          <figcaption>Baseline rate, how often present historically</figcaption>
+        </figure>
+        <figure>
+          <img src="seagrass-alert-pari/pari-presenceQ3_2025.png" alt="Presence map for Pari, Q3 2025">
+          <figcaption>Presence, Q3 2025</figcaption>
+        </figure>
+        <figure>
+          <img src="seagrass-alert-pari/pari-recentPresence.png" alt="Recent presence rate map for Pari, 2023 to 2025">
+          <figcaption>Recent presence rate, 2023&ndash;2025</figcaption>
+        </figure>
+        <figure>
+          <img src="seagrass-alert-pari/pari-presenceDrop.png" alt="Presence drop map for Pari">
+          <figcaption>Presence drop from baseline</figcaption>
+        </figure>
+        <figure>
+          <img src="seagrass-alert-pari/pari-provisionalAlert.png" alt="Provisional alert map for Pari">
+          <figcaption>Provisional alert</figcaption>
+        </figure>
+        <figure>
+          <img src="seagrass-alert-pari/pari-permanentLoss.png" alt="Permanent loss candidate map for Pari">
+          <figcaption>Permanent loss candidate</figcaption>
+        </figure>
+      </div>
+      <div class="loc-chart-wrap">
+        <svg viewBox="0 0 300 190" class="loc-chart" role="img"><title>Pari Q3 presence rate, 2017 to 2025</title>
+          <line x1="46" y1="140" x2="284" y2="140" class="lc-grid"/>
+          <line x1="46" y1="78" x2="284" y2="78" class="lc-grid"/>
+          <line x1="46" y1="16" x2="284" y2="16" class="lc-grid"/>
+          <text x="40" y="140" class="lc-label" text-anchor="end" dominant-baseline="middle">0%</text>
+          <text x="40" y="78" class="lc-label" text-anchor="end" dominant-baseline="middle">50%</text>
+          <text x="40" y="16" class="lc-label" text-anchor="end" dominant-baseline="middle">100%</text>
+          <text class="lc-axis-title" x="12" y="78" text-anchor="middle" transform="rotate(-90,12,78)">Area present</text>
+          <polyline points="105.5,112.3 135.25,87.2 165,83.2 194.75,98.3 224.5,107.1 254.25,88.8 284,103.7" class="lc-actual"/>
+          <text x="46" y="168" class="lc-label" text-anchor="middle">2017</text>
+          <text x="165" y="168" class="lc-label" text-anchor="middle">2021</text>
+          <text x="284" y="168" class="lc-label" text-anchor="middle">2025</text>
+        </svg>
+        <p class="rc-stats">Q3 seagrass presence rate by year, 2017&ndash;2025. No cloud-free data available for 2017&ndash;2018.</p>
+      </div>
+    </div>
+
+    <input type="radio" name="loc-select" id="loc-next" class="loc-radio">
+    <label for="loc-next" class="loc-tab">More locations coming soon</label>
+    <div class="loc-panel">
+      <p class="context-note">Have a location in mind? Request it by email and the results will appear here once processed.</p>
     </div>
   </div>
 </section>
