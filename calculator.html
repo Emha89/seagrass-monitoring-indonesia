@@ -70,8 +70,8 @@
   .result-card .lc-actual{ stroke-dasharray:600; }
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-      .result-card .lc-actual{ stroke-dashoffset:600; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% entry 100%; }
-      .result-card .lc-forecast{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 40% entry 100%; }
+      .result-card .lc-actual{ stroke-dashoffset:600; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% contain 30%; }
+      .result-card .lc-forecast{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 40% contain 50%; }
     }
   }
   @keyframes draw-line{ to{ stroke-dashoffset:0; } }
