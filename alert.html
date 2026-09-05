@@ -77,6 +77,14 @@
   .lc-actual{ fill:none; stroke:var(--seagrass-dark); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
   .rc-stats{ font-size:0.82rem; color:var(--ink-muted); margin-top:8px; }
 
+  .loc-thumb{ display:block; }
+  .loc-thumb img{ transition:opacity 0.2s; }
+  .loc-thumb:hover img{ opacity:0.85; }
+  .lightbox{ display:none; position:fixed; inset:0; z-index:100; background:rgba(15,42,61,0.92); align-items:center; justify-content:center; padding:24px; }
+  .lightbox:target{ display:flex; }
+  .lightbox img{ max-width:100%; max-height:90vh; width:100%; height:auto; object-fit:contain; }
+  .lightbox-close{ position:fixed; top:20px; right:24px; color:#fff; font-size:2rem; text-decoration:none; line-height:1; font-family:var(--font-sans); z-index:101; }
+
   footer{ background:var(--navy); color:var(--muted-on-navy); padding:48px 0; }
   footer h2{ color:var(--cream); font-size:1.2rem; margin-bottom:12px; }
   footer p{ max-width:64ch; font-size:0.92rem; }
@@ -160,30 +168,50 @@
     <div class="loc-panel">
       <div class="loc-gallery">
         <figure>
-          <img src="seagrass-alert-pari/pari-baselineRate.png" alt="Baseline rate map for Pari">
+          <a href="#pari-lb-baseline" class="loc-thumb">
+            <img src="seagrass-alert-pari/pari-baselineRate.png" alt="Baseline rate map for Pari">
+          </a>
           <figcaption>Baseline rate, how often present historically</figcaption>
         </figure>
         <figure>
-          <img src="seagrass-alert-pari/pari-presenceQ3-2025.png" alt="Presence map for Pari, Q3 2025">
+          <a href="#pari-lb-q3" class="loc-thumb">
+            <img src="seagrass-alert-pari/pari-presenceQ3_2025.png" alt="Presence map for Pari, Q3 2025">
+          </a>
           <figcaption>Presence, Q3 2025</figcaption>
         </figure>
         <figure>
-          <img src="seagrass-alert-pari/pari-recentPresence.png" alt="Recent presence rate map for Pari, 2023 to 2025">
+          <a href="#pari-lb-recent" class="loc-thumb">
+            <img src="seagrass-alert-pari/pari-recentPresence.png" alt="Recent presence rate map for Pari, 2023 to 2025">
+          </a>
           <figcaption>Recent presence rate, 2023&ndash;2025</figcaption>
         </figure>
         <figure>
-          <img src="seagrass-alert-pari/pari-presenceDrop.png" alt="Presence drop map for Pari">
+          <a href="#pari-lb-drop" class="loc-thumb">
+            <img src="seagrass-alert-pari/pari-presenceDrop.png" alt="Presence drop map for Pari">
+          </a>
           <figcaption>Presence drop from baseline</figcaption>
         </figure>
         <figure>
-          <img src="seagrass-alert-pari/pari-provisionalAlert.png" alt="Provisional alert map for Pari">
+          <a href="#pari-lb-provisional" class="loc-thumb">
+            <img src="seagrass-alert-pari/pari-provisionalAlert.png" alt="Provisional alert map for Pari">
+          </a>
           <figcaption>Provisional alert</figcaption>
         </figure>
         <figure>
-          <img src="seagrass-alert-pari/pari-permanentLoss.png" alt="Permanent loss candidate map for Pari">
+          <a href="#pari-lb-permanent" class="loc-thumb">
+            <img src="seagrass-alert-pari/pari-permanentLoss.png" alt="Permanent loss candidate map for Pari">
+          </a>
           <figcaption>Permanent loss candidate</figcaption>
         </figure>
       </div>
+
+      <div class="lightbox" id="pari-lb-baseline"><a href="#" class="lightbox-close" aria-label="Close">&times;</a><img src="seagrass-alert-pari/pari-baselineRate.png" alt="Baseline rate map for Pari, enlarged"></div>
+      <div class="lightbox" id="pari-lb-q3"><a href="#" class="lightbox-close" aria-label="Close">&times;</a><img src="seagrass-alert-pari/pari-presenceQ3_2025.png" alt="Presence map for Pari, Q3 2025, enlarged"></div>
+      <div class="lightbox" id="pari-lb-recent"><a href="#" class="lightbox-close" aria-label="Close">&times;</a><img src="seagrass-alert-pari/pari-recentPresence.png" alt="Recent presence rate map for Pari, enlarged"></div>
+      <div class="lightbox" id="pari-lb-drop"><a href="#" class="lightbox-close" aria-label="Close">&times;</a><img src="seagrass-alert-pari/pari-presenceDrop.png" alt="Presence drop map for Pari, enlarged"></div>
+      <div class="lightbox" id="pari-lb-provisional"><a href="#" class="lightbox-close" aria-label="Close">&times;</a><img src="seagrass-alert-pari/pari-provisionalAlert.png" alt="Provisional alert map for Pari, enlarged"></div>
+      <div class="lightbox" id="pari-lb-permanent"><a href="#" class="lightbox-close" aria-label="Close">&times;</a><img src="seagrass-alert-pari/pari-permanentLoss.png" alt="Permanent loss candidate map for Pari, enlarged"></div>
+      
       <div class="loc-chart-wrap">
         <svg viewBox="0 0 300 190" class="loc-chart" role="img"><title>Pari Q3 presence rate, 2017 to 2025</title>
           <line x1="46" y1="140" x2="284" y2="140" class="lc-grid"/>
