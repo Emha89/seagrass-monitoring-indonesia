@@ -80,7 +80,7 @@
   .lc-actual{ stroke-dasharray:400; }
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-      .lc-actual{ stroke-dashoffset:400; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% entry 100%; }
+      .lc-actual{ stroke-dashoffset:400; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% contain 30%; }
     }
   }
   @keyframes draw-line{ to{ stroke-dashoffset:0; } }
