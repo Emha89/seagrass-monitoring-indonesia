@@ -70,10 +70,10 @@
     .agc-chart .line-path{ stroke-dasharray:1500; }
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-      .agc-chart .line-path{ stroke-dashoffset:1500; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% entry 100%; }
-      .agc-chart .area-fill{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 0% entry 100%; }
-      .agc-chart .pt{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 20% entry 100%; }
-      .agc-chart .ci-bars{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 20% entry 100%; }
+      .agc-chart .line-path{ stroke-dashoffset:1500; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% contain 30%; }
+      .agc-chart .area-fill{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 0% contain 30%; }
+      .agc-chart .pt{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 20% contain 40%; }
+      .agc-chart .ci-bars{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 20% contain 40%; }
     }
   }
   @keyframes draw-line{ to{ stroke-dashoffset:0; } }
