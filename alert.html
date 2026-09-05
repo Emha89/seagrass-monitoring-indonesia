@@ -77,14 +77,6 @@
   .lc-actual{ fill:none; stroke:var(--seagrass-dark); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
   .rc-stats{ font-size:0.82rem; color:var(--ink-muted); margin-top:8px; }
 
-  .lc-actual{ stroke-dasharray:400; }
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .lc-actual{ stroke-dashoffset:400; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% contain 30%; }
-    }
-  }
-  @keyframes draw-line{ to{ stroke-dashoffset:0; } }
-
   .loc-thumb{ display:block; }
   .loc-thumb img{ transition:opacity 0.2s; }
   .loc-thumb:hover img{ opacity:0.85; }
