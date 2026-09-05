@@ -67,18 +67,6 @@
   .agc-chart .ci-bars line{ stroke:var(--sienna); stroke-width:1.3; opacity:0.8; }
   .chart-caption{ font-size:0.85rem; color:var(--ink-muted); margin-top:12px; padding:0 16px 16px; }
 
-    .agc-chart .line-path{ stroke-dasharray:1500; }
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .agc-chart .line-path{ stroke-dashoffset:1500; animation:draw-line linear forwards; animation-timeline:view(); animation-range:entry 0% contain 30%; }
-      .agc-chart .area-fill{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 0% contain 30%; }
-      .agc-chart .pt{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 20% contain 40%; }
-      .agc-chart .ci-bars{ opacity:0; animation:fade-in linear forwards; animation-timeline:view(); animation-range:entry 20% contain 40%; }
-    }
-  }
-  @keyframes draw-line{ to{ stroke-dashoffset:0; } }
-  @keyframes fade-in{ to{ opacity:1; } }
-
   .tool-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; }
   .tool-card{ border:1px solid var(--sand-line); padding:28px; background:#fff; }
   .tool-card h3{ font-size:1.15rem; margin-bottom:10px; }
