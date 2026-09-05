@@ -49,6 +49,13 @@
   .person-card .note{ color:var(--ink-muted); font-size:0.88rem; font-style:italic; margin-bottom:10px; }
   .person-card a{ font-size:0.85rem; font-weight:500; }
 
+  .featured-person{ display:flex; gap:28px; align-items:flex-start; margin-top:8px; flex-wrap:wrap; }
+  .featured-person img{ width:160px; height:160px; object-fit:cover; border-radius:50%; flex-shrink:0; }
+  .featured-person .fp-text{ flex:1; min-width:240px; }
+  .featured-person .name{ font-family:var(--font-serif); font-size:1.3rem; margin-bottom:2px; }
+  .featured-person .role{ color:var(--seagrass-dark); font-size:0.9rem; font-weight:500; margin-bottom:8px; }
+  .featured-person p{ color:var(--ink-muted); font-size:0.95rem; margin:0; max-width:56ch; }
+
   .contrib-group{ margin-bottom:26px; }
   .contrib-group h3{ font-size:1rem; color:var(--seagrass-dark); margin-bottom:8px; }
   .contrib-group ul{ margin:0; padding-left:20px; color:var(--ink-muted); font-size:0.95rem; }
@@ -88,6 +95,19 @@
   <div class="wrap">
     <h1>The people behind this research.</h1>
     <p>This work rests on a supervisory team spanning two universities and field data shared by researchers and institutions across Indonesia.</p>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>The researcher</h2>
+  <div class="featured-person">
+    <img src="hafizt-photo.png" alt="Muhammad Hafizt">
+    <div class="fp-text">
+      <div class="name">Muhammad Hafizt</div>
+      <div class="role">PhD Candidate</div>
+      <p>Muhammad Hafizt is a PhD candidate at the School of the Environment, University of Queensland, and a researcher with Indonesia's National Research and Innovation Agency (BRIN). His PhD research develops satellite-based methods for estimating and monitoring seagrass carbon across Indonesia, the work behind every tool on this site.</p>
+      <a href="https://environment.uq.edu.au/profile/27202/muhammad%C2%A0-hafizt%C2%A0" target="_blank" rel="noopener noreferrer">View profile &rarr;</a>
+    </div>
   </div>
 </section>
 
