@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="gate.js"></script>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Grass That Breathes Carbon, a forthcoming book on measuring blue carbon from space, using Indonesia as a working example.">
+<title>The Book — Indonesia Seagrass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2A3D; --seagrass:#3E6B52; --seagrass-dark:#2C4D3C;
+    --sand:#F3EFE3; --sand-line:#DBD3BE; --ink:#202821; --ink-muted:#5B6459;
+    --cream:#F3EFE3; --muted-on-navy:#9FB6C2; --sienna:#B1502C;
+    --font-serif:'Fraunces', Georgia, serif;
+    --font-sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:var(--font-sans); color:var(--ink); background:var(--sand); line-height:1.65; }
+  a{ color:var(--seagrass-dark); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--sienna); outline-offset:2px; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  h1,h2,h3{ font-family:var(--font-serif); font-weight:500; color:inherit; margin:0; }
+
+  header{ background:var(--navy); position:sticky; top:0; z-index:10; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+  .wordmark{ font-family:var(--font-serif); font-size:1.15rem; color:var(--cream); text-decoration:none; }
+  .wordmark span{ color:var(--muted-on-navy); font-family:var(--font-sans); font-size:0.85rem; display:block; margin-top:2px; }
+  nav a{ color:var(--muted-on-navy); text-decoration:none; font-size:0.85rem; margin-left:14px; }
+  nav a:hover{ color:var(--cream); }
+
+  .hero{ background:var(--navy); padding:76px 0 96px; }
+  .status-flag{ display:inline-block; background:#FDF2EC; border:1px solid var(--sienna); color:var(--sienna); font-size:0.8rem; font-weight:500; padding:4px 10px; margin-bottom:14px; }
+  .hero h1{ font-size:clamp(2.1rem, 4.5vw, 3.2rem); color:var(--cream); max-width:18ch; line-height:1.15; font-style:italic; }
+  .hero p{ color:var(--muted-on-navy); max-width:62ch; font-size:1.05rem; margin-top:22px; }
+
+  section.content{ padding:56px 0; }
+  section.content + section.content{ border-top:1px solid var(--sand-line); }
+  section.content h2{ font-size:1.6rem; margin-bottom:16px; }
+  section.content .lede{ max-width:66ch; color:var(--ink-muted); }
+  section.content .lede p + p{ margin-top:14px; }
+
+  .chapter-list{ margin-top:20px; max-width:70ch; padding:0; counter-reset:chapter; }
+  .chapter-list li{ list-style:none; margin-bottom:22px; padding-left:44px; position:relative; }
+  .chapter-list li::before{ counter-increment:chapter; content:counter(chapter); position:absolute; left:0; top:-2px; font-family:var(--font-serif); font-size:1.4rem; color:var(--seagrass-dark); }
+  .chapter-list .ch-title{ font-family:var(--font-serif); font-size:1.1rem; margin-bottom:4px; }
+  .chapter-list .ch-hook{ color:var(--ink-muted); font-size:0.92rem; }
+
+  .cross-link{ border:1px solid var(--sand-line); padding:24px 28px; background:#fff; margin-top:24px; max-width:560px; }
+  .cross-link p{ color:var(--ink-muted); font-size:0.95rem; margin:0 0 14px; }
+  .cross-link a{ font-weight:500; }
+
+  .notify-card{ border:1px solid var(--sand-line); padding:28px; background:#fff; margin-top:20px; max-width:560px; }
+  .notify-card p{ color:var(--ink-muted); font-size:0.95rem; margin:0 0 18px; }
+  .notify-card .btn{ display:inline-block; background:var(--seagrass); color:#fff; text-decoration:none; padding:10px 18px; font-size:0.9rem; font-weight:500; }
+  .notify-card .btn:hover{ background:var(--seagrass-dark); }
+
+  footer{ background:var(--navy); color:var(--muted-on-navy); padding:48px 0; }
+  footer h2{ color:var(--cream); font-size:1.2rem; margin-bottom:12px; }
+  footer p{ max-width:64ch; font-size:0.92rem; }
+  footer .contact{ margin-top:18px; font-size:0.85rem; color:var(--muted-on-navy); }
+
+  @media (max-width:720px){ nav a{ margin-left:10px; font-size:0.8rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html">Indonesia Seagrass
+      <span>Carbon mapping tools</span>
+    </a>
+    <nav>
+      <a href="index.html#data">Data</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="alert.html">Change alert</a>
+      <a href="field-data.html">Contribute</a>
+      <a href="team.html">Team</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="status-flag">Coming soon</span>
+    <h1>The Grass That Breathes Carbon</h1>
+    <p>A book about the carbon hidden in seagrass meadows worldwide, and how one country is learning to measure it from space.</p>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>About the book</h2>
+  <div class="lede">
+    <p>Seagrass meadows grow along coastlines on every continent except Antarctica, quietly storing carbon that most climate accounting still overlooks. Measuring that carbon at a country scale is a challenge shared by every nation with a seagrass coastline, and very few have found a practical way to do it.</p>
+    <p>This book tells the story of one attempt to solve that problem, using Indonesia, home to one of the world's largest shares of seagrass, as a detailed working example. It follows the science from scattered field surveys to a working satellite model, including the surprises, dead ends, and open questions along the way. The lessons are built in Indonesia, but built to travel.</p>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>Chapters</h2>
+  <ol class="chapter-list">
+    <li><div class="ch-title">The Quietest Carbon Sink on Earth</div><div class="ch-hook">Seagrass meadows grow on every continent's coastline except Antarctica, quietly storing carbon that most climate accounting still overlooks.</div></li>
+    <li><div class="ch-title">Carbon Hiding in Grass</div><div class="ch-hook">Why a patch of underwater grass can hold more climate power than its size suggests.</div></li>
+    <li><div class="ch-title">A Problem No Country Has Fully Solved</div><div class="ch-hook">You cannot count what you cannot see, a challenge shared by every nation with a seagrass coastline. Indonesia decided to try anyway.</div></li>
+    <li><div class="ch-title">Stitching a Scattered Puzzle</div><div class="ch-hook">Years of field surveys, scattered across a thousand islands, waiting to be pieced into one picture.</div></li>
+    <li><div class="ch-title">Teaching a Satellite to See Seagrass</div><div class="ch-hook">How a machine learns to spot a plant it has never touched, and where it still gets it wrong.</div></li>
+    <li><div class="ch-title">Two Rulers, Two Different Answers</div><div class="ch-hook">Two honest ways of measuring the same meadow gave two very different numbers, a lesson for anyone building a carbon inventory anywhere.</div></li>
+    <li><div class="ch-title">The Honest Limits of a Model</div><div class="ch-hook">Every model has a blind spot, and this chapter looks at seagrass carbon's without flinching.</div></li>
+    <li><div class="ch-title">From One Country to the World</div><div class="ch-hook">What Indonesia's map means for the dozens of other nations trying to count their own blue carbon.</div></li>
+    <li><div class="ch-title">An Invitation</div><div class="ch-hook">The map is not finished anywhere, and it never fully will be. Here is how anyone, in any coastal country, can help write the next page.</div></li>
+  </ol>
+</section>
+
+<section class="content wrap">
+  <h2>About the author</h2>
+  <div class="cross-link">
+    <p>Written by the PhD candidate behind the tools on this site, drawing on years of fieldwork and satellite research across Indonesia.</p>
+    <a href="team.html">Meet the researcher &rarr;</a>
+  </div>
+</section>
+
+<section class="content wrap">
+  <h2>Stay updated</h2>
+  <div class="notify-card">
+    <p>Want to know when the book is published? Send a short email and you'll be notified directly.</p>
+    <a class="btn" href="mailto:m.hafizt@uq.edu.au?subject=Notify me: The Grass That Breathes Carbon">Get notified</a>
+  </div>
+</section>
+
+<footer id="about">
+  <div class="wrap">
+    <h2>About this research</h2>
+    <p>These tools are part of a PhD thesis on satellite-based seagrass carbon estimation in Indonesia, at the University of Queensland in partnership with BRIN.</p>
+    <div class="contact">Contact: m.hafizt@uq.edu.au</div>
+  </div>
+</footer>
+
+</body>
+</html>
